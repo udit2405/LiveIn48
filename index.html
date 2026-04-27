@@ -64,26 +64,7 @@
   .reveal { opacity: 0; transform: translateY(8px); transition: opacity 0.7s ease, transform 0.7s ease; }
   .reveal.in { opacity: 1; transform: translateY(0); }
 
-  /* Coming-soon modal */
-  #coming-modal {
-    display: none;
-    position: fixed; inset: 0; z-index: 999;
-    background: rgba(0,0,0,0.45);
-    backdrop-filter: blur(4px);
-    align-items: center;
-    justify-content: center;
-  }
-  #coming-modal.open { display: flex; }
-  #coming-modal .card {
-    background: #FAFAF7;
-    border-radius: 20px;
-    padding: 2.5rem 2rem;
-    max-width: 340px;
-    width: 90%;
-    text-align: center;
-    box-shadow: 0 24px 60px rgba(0,0,0,0.18);
-    animation: pop .2s ease;
-  }
+  /* Modal pop animation */
   @keyframes pop { from { transform: scale(0.92); opacity:0; } to { transform: scale(1); opacity:1; } }
 
   /* WhatsApp floating button */
@@ -111,13 +92,48 @@
 </head>
 <body>
 
-<!-- ============== COMING SOON MODAL ============== -->
-<div id="coming-modal" onclick="closeComing(event)">
-  <div class="card">
-    <div style="font-size:2rem; margin-bottom:0.75rem;">🔧</div>
-    <div style="font-size:1rem; font-weight:600; letter-spacing:-0.02em; margin-bottom:0.5rem;">We're updating this.</div>
-    <p style="font-size:0.875rem; color:#6B6B6B; line-height:1.6;">We'll be back soon. In the meantime, drop us a message on WhatsApp — we reply fast.</p>
-    <button onclick="document.getElementById('coming-modal').classList.remove('open')" style="margin-top:1.5rem; background:#0E0E0E; color:#FAFAF7; border-radius:999px; padding:0.55rem 1.2rem; font-size:0.85rem; font-weight:500; border:none; cursor:pointer;">Got it</button>
+<!-- ============== TERMS MODAL ============== -->
+<div id="terms-modal" onclick="closeModal('terms-modal', event)" style="display:none; position:fixed; inset:0; z-index:999; background:rgba(0,0,0,0.45); backdrop-filter:blur(4px); align-items:flex-start; justify-content:center; overflow-y:auto; padding:2rem 1rem;">
+  <div style="background:#FAFAF7; border-radius:20px; padding:2.5rem 2rem; max-width:580px; width:100%; margin:auto; box-shadow:0 24px 60px rgba(0,0,0,0.18); animation:pop .2s ease; position:relative;">
+    <button onclick="document.getElementById('terms-modal').style.display='none'" style="position:absolute; top:1.25rem; right:1.25rem; background:none; border:none; cursor:pointer; color:#6B6B6B; font-size:1.1rem; line-height:1;">✕</button>
+    <div style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.1em; color:#6B6B6B; margin-bottom:0.75rem;">Terms of Service</div>
+    <div style="font-size:1.1rem; font-weight:600; letter-spacing:-0.03em; margin-bottom:1.5rem;">LiveIn48 — Terms of Service</div>
+    <div style="font-size:0.82rem; color:#444; line-height:1.75; display:flex; flex-direction:column; gap:1.1rem;">
+      <p><strong style="color:#0E0E0E;">1. Service description.</strong> LiveIn48 ("we", "studio") provides a rapid web development service. Upon submission of your idea and receipt of full payment, we will deliver a live, functional website within 48 hours of the agreed build start time.</p>
+      <p><strong style="color:#0E0E0E;">2. Payment.</strong> All payments are made upfront and are non-refundable except as stated below. Accepted methods: Razorpay, UPI, or bank transfer. Prices are inclusive of applicable GST.</p>
+      <p><strong style="color:#0E0E0E;">3. Delivery guarantee.</strong> If we fail to deliver a live website within 48 hours of the confirmed build start time, you are entitled to a 50% refund of the amount paid. This refund is processed within 5–7 business days.</p>
+      <p><strong style="color:#0E0E0E;">4. Revisions.</strong> Each plan includes one round of revisions after delivery, limited to copy changes, color adjustments, and minor layout tweaks. Feature additions or scope changes are not covered under revisions.</p>
+      <p><strong style="color:#0E0E0E;">5. Post-launch support.</strong> Pro and Launch+ plans include 7 days of post-launch bug fixes. This covers bugs introduced by our build, not new feature requests or third-party integrations added after delivery.</p>
+      <p><strong style="color:#0E0E0E;">6. Intellectual property.</strong> Upon full payment, you own the source code and all assets delivered to you. LiveIn48 retains the right to display the work in its portfolio unless you request otherwise in writing.</p>
+      <p><strong style="color:#0E0E0E;">7. Client responsibilities.</strong> You are responsible for providing accurate information and timely feedback during the revision window. Delays caused by unresponsive clients do not extend the 48-hour refund guarantee.</p>
+      <p><strong style="color:#0E0E0E;">8. Limitation of liability.</strong> LiveIn48 is not liable for any indirect, incidental, or consequential damages arising from use of the delivered website. Our total liability is limited to the amount paid for the service.</p>
+      <p><strong style="color:#0E0E0E;">9. Governing law.</strong> These terms are governed by the laws of India. Any disputes shall be resolved in the courts of New Delhi.</p>
+      <p><strong style="color:#0E0E0E;">10. Changes to terms.</strong> We may update these terms at any time. Continued use of our services constitutes acceptance of the revised terms.</p>
+      <p style="color:#9CA3AF;">Last updated: April 2026 · Questions? Message us on WhatsApp.</p>
+    </div>
+    <button onclick="document.getElementById('terms-modal').style.display='none'" style="margin-top:2rem; background:#0E0E0E; color:#FAFAF7; border-radius:999px; padding:0.55rem 1.4rem; font-size:0.85rem; font-weight:500; border:none; cursor:pointer;">Close</button>
+  </div>
+</div>
+
+<!-- ============== PRIVACY MODAL ============== -->
+<div id="privacy-modal" onclick="closeModal('privacy-modal', event)" style="display:none; position:fixed; inset:0; z-index:999; background:rgba(0,0,0,0.45); backdrop-filter:blur(4px); align-items:flex-start; justify-content:center; overflow-y:auto; padding:2rem 1rem;">
+  <div style="background:#FAFAF7; border-radius:20px; padding:2.5rem 2rem; max-width:580px; width:100%; margin:auto; box-shadow:0 24px 60px rgba(0,0,0,0.18); animation:pop .2s ease; position:relative;">
+    <button onclick="document.getElementById('privacy-modal').style.display='none'" style="position:absolute; top:1.25rem; right:1.25rem; background:none; border:none; cursor:pointer; color:#6B6B6B; font-size:1.1rem; line-height:1;">✕</button>
+    <div style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.1em; color:#6B6B6B; margin-bottom:0.75rem;">Privacy Policy</div>
+    <div style="font-size:1.1rem; font-weight:600; letter-spacing:-0.03em; margin-bottom:1.5rem;">LiveIn48 — Privacy Policy</div>
+    <div style="font-size:0.82rem; color:#444; line-height:1.75; display:flex; flex-direction:column; gap:1.1rem;">
+      <p><strong style="color:#0E0E0E;">1. What we collect.</strong> When you submit an idea or contact us, we collect your name, email address, and the details of your idea. If you pay via Razorpay, payment data is handled entirely by Razorpay — we do not store card or UPI details.</p>
+      <p><strong style="color:#0E0E0E;">2. How we use it.</strong> We use your information solely to deliver the service you paid for: building and deploying your website, sending you the live URL, and providing post-launch support within the agreed window.</p>
+      <p><strong style="color:#0E0E0E;">3. Communication.</strong> We may send you transactional messages (build updates, delivery confirmation) via email or WhatsApp. We do not send marketing emails unless you explicitly opt in.</p>
+      <p><strong style="color:#0E0E0E;">4. Data sharing.</strong> We do not sell, rent, or share your personal data with third parties, except where required by law or to fulfil the service (e.g., domain registrars, hosting providers). All third-party services we use are GDPR-compliant.</p>
+      <p><strong style="color:#0E0E0E;">5. Cookies & analytics.</strong> Our website uses privacy-respecting analytics (no personally identifiable tracking). No third-party advertising cookies are set on this site.</p>
+      <p><strong style="color:#0E0E0E;">6. Data retention.</strong> We retain your project details for up to 12 months after delivery for support purposes. You may request deletion of your data at any time by messaging us on WhatsApp.</p>
+      <p><strong style="color:#0E0E0E;">7. Your rights.</strong> Under applicable Indian data protection law, you have the right to access, correct, or request deletion of your personal data. Contact us via WhatsApp to exercise these rights.</p>
+      <p><strong style="color:#0E0E0E;">8. Security.</strong> We take reasonable technical measures to protect your data. However, no transmission over the internet is 100% secure. We cannot guarantee absolute security.</p>
+      <p><strong style="color:#0E0E0E;">9. Changes to this policy.</strong> We may update this policy from time to time. The latest version will always be accessible on this page.</p>
+      <p style="color:#9CA3AF;">Last updated: April 2026 · Questions? Message us on WhatsApp.</p>
+    </div>
+    <button onclick="document.getElementById('privacy-modal').style.display='none'" style="margin-top:2rem; background:#0E0E0E; color:#FAFAF7; border-radius:999px; padding:0.55rem 1.4rem; font-size:0.85rem; font-weight:500; border:none; cursor:pointer;">Close</button>
   </div>
 </div>
 
@@ -515,11 +531,9 @@
       <span class="ml-2">— a studio that ships.</span>
     </div>
     <div class="flex flex-wrap gap-6 items-center">
-      <a href="mailto:ship@livein48.co" class="hover:text-black">ship@livein48.co</a>
-      <!-- Twitter/X, Terms, Privacy → show "updating" modal -->
-      <a href="#" class="hover:text-black" onclick="event.preventDefault(); openComing();">Twitter / X</a>
-      <a href="#" class="hover:text-black" onclick="event.preventDefault(); openComing();">Terms</a>
-      <a href="#" class="hover:text-black" onclick="event.preventDefault(); openComing();">Privacy</a>
+      <!-- Terms & Privacy → open dedicated modals -->
+      <a href="#" class="hover:text-black" onclick="event.preventDefault(); openModal('terms-modal');">Terms</a>
+      <a href="#" class="hover:text-black" onclick="event.preventDefault(); openModal('privacy-modal');">Privacy</a>
       <!-- WhatsApp contact link in footer -->
       <a href="https://wa.me/919588859960?text=Hi%20LiveIn48%20Studio" target="_blank" rel="noopener"
          class="flex items-center gap-1.5 hover:text-black"
@@ -533,19 +547,27 @@
 </footer>
 
 <script>
-  // Coming-soon modal
-  function openComing() {
-    document.getElementById('coming-modal').classList.add('open');
+  // Terms / Privacy modals
+  function openModal(id) {
+    var el = document.getElementById(id);
+    el.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
   }
-  function closeComing(e) {
-    // close only when clicking the backdrop, not the card itself
-    if (e.target === document.getElementById('coming-modal')) {
-      document.getElementById('coming-modal').classList.remove('open');
+  function closeModal(id, e) {
+    // close only when clicking the backdrop, not the card
+    if (e.target === document.getElementById(id)) {
+      document.getElementById(id).style.display = 'none';
+      document.body.style.overflow = '';
     }
   }
-  // Escape key to close modal
+  // Escape key closes any open modal
   document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') document.getElementById('coming-modal').classList.remove('open');
+    if (e.key === 'Escape') {
+      ['terms-modal','privacy-modal'].forEach(function(id) {
+        document.getElementById(id).style.display = 'none';
+      });
+      document.body.style.overflow = '';
+    }
   });
 
   // Scroll reveal
