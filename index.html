@@ -359,74 +359,89 @@
     <p class="mt-6 text-neutral-600 max-w-xl">
       We ship within 48 hours or you get 50% back. We've never had to refund.
     </p>
-    <div class="mt-16 grid md:grid-cols-3 gap-px bg-neutral-200 border hairline rounded-2xl overflow-hidden">
+    <!-- Pricing cards + idea box side-by-side on desktop, stacked on mobile -->
+    <div class="mt-16 flex flex-col lg:flex-row gap-6 items-start">
 
-      <!-- BASIC -->
-      <div class="bg-white p-8 flex flex-col">
-        <div class="text-sm font-medium mb-1">Basic</div>
-        <div class="text-sm text-neutral-500 mb-8">For getting the idea out, simply.</div>
-        <div class="mb-8">
-          <div class="flex items-baseline gap-2">
-            <div class="text-4xl font-medium tight">₹999</div>
-            <div class="text-sm text-neutral-400 line-through">₹2,999</div>
+      <!-- Pricing cards -->
+      <div class="flex-1 min-w-0 grid md:grid-cols-3 gap-px bg-neutral-200 border hairline rounded-2xl overflow-hidden">
+
+        <!-- BASIC -->
+        <div class="bg-white p-8 flex flex-col">
+          <div class="text-sm font-medium mb-1">Basic</div>
+          <div class="text-sm text-neutral-500 mb-8">For getting the idea out, simply.</div>
+          <div class="mb-8">
+            <div class="flex items-baseline gap-2">
+              <div class="text-4xl font-medium tight">₹999</div>
+              <div class="text-sm text-neutral-400 line-through">₹2,999</div>
+            </div>
+            <div class="text-xs text-neutral-500 mt-1">limited-period offer</div>
           </div>
-          <div class="text-xs text-neutral-500 mt-1">limited-period offer</div>
+          <ul class="space-y-3 text-sm text-neutral-700 flex-grow mb-8">
+            <li class="flex gap-2"><span class="text-neutral-400">—</span> Single-page landing site</li>
+            <li class="flex gap-2"><span class="text-neutral-400">—</span> Logo + basic color system</li>
+            <li class="flex gap-2"><span class="text-neutral-400">—</span> Lead capture form</li>
+            <li class="flex gap-2"><span class="text-neutral-400">—</span> Mobile responsive</li>
+            <li class="flex gap-2"><span class="text-neutral-400">—</span> Live in 48 hours</li>
+          </ul>
+          <a href="https://rzp.io/rzp/AxWbrz0" target="_blank" rel="noopener" class="btn-ghost text-center">Choose Basic</a>
         </div>
-        <ul class="space-y-3 text-sm text-neutral-700 flex-grow mb-8">
-          <li class="flex gap-2"><span class="text-neutral-400">—</span> Single-page landing site</li>
-          <li class="flex gap-2"><span class="text-neutral-400">—</span> Logo + basic color system</li>
-          <li class="flex gap-2"><span class="text-neutral-400">—</span> Lead capture form</li>
-          <li class="flex gap-2"><span class="text-neutral-400">—</span> Mobile responsive</li>
-          <li class="flex gap-2"><span class="text-neutral-400">—</span> Live in 48 hours</li>
-        </ul>
-        <a href="https://rzp.io/rzp/AxWbrz0" target="_blank" rel="noopener" class="btn-ghost text-center">Choose Basic</a>
+
+        <!-- PRO -->
+        <div class="bg-[#FAFAF7] p-8 flex flex-col relative">
+          <div class="absolute top-6 right-6 text-[10px] uppercase tracking-widest bg-black text-white px-2 py-1 rounded-full">Most picked</div>
+          <div class="text-sm font-medium mb-1">Pro</div>
+          <div class="text-sm text-neutral-500 mb-8">For ideas that are actually going somewhere.</div>
+          <div class="mb-8">
+            <div class="flex items-baseline gap-2">
+              <div class="text-4xl font-medium tight">₹5,999</div>
+              <div class="text-sm text-neutral-400 line-through">₹7,999</div>
+            </div>
+            <div class="text-xs text-neutral-500 mt-1">limited-period offer · 6 spots</div>
+          </div>
+          <ul class="space-y-3 text-sm text-neutral-800 flex-grow mb-8">
+            <li class="flex gap-2"><span class="text-neutral-500">—</span> Everything in Basic</li>
+            <li class="flex gap-2"><span class="text-neutral-500">—</span> Multi-section website</li>
+            <li class="flex gap-2"><span class="text-neutral-500">—</span> Full brand system + voice doc</li>
+            <li class="flex gap-2"><span class="text-neutral-500">—</span> Custom domain + email setup</li>
+            <li class="flex gap-2"><span class="text-neutral-500">—</span> Analytics + email automation</li>
+            <li class="flex gap-2"><span class="text-neutral-500">—</span> 90-day roadmap</li>
+            <li class="flex gap-2"><span class="text-neutral-500">—</span> 7 days of post-launch fixes</li>
+          </ul>
+          <a href="https://rzp.io/rzp/wagNd9oF" target="_blank" rel="noopener" class="btn-primary text-center">Choose Pro</a>
+        </div>
+
+        <!-- LAUNCH+ -->
+        <div class="bg-white p-8 flex flex-col">
+          <div class="text-sm font-medium mb-1">Launch+</div>
+          <div class="text-sm text-neutral-500 mb-8">For founders ready to charge from day one.</div>
+          <div class="mb-8">
+            <div class="flex items-baseline gap-2">
+              <div class="text-4xl font-medium tight">₹9,999</div>
+              <div class="text-sm text-neutral-400 line-through">₹12,999</div>
+            </div>
+            <div class="text-xs text-neutral-500 mt-1">limited-period offer</div>
+          </div>
+          <ul class="space-y-3 text-sm text-neutral-700 flex-grow mb-8">
+            <li class="flex gap-2"><span class="text-neutral-400">—</span> Everything in Pro</li>
+            <li class="flex gap-2"><span class="text-neutral-400">—</span> Working MVP (auth + dashboard)</li>
+            <li class="flex gap-2"><span class="text-neutral-400">—</span> Razorpay / Stripe integration</li>
+            <li class="flex gap-2"><span class="text-neutral-400">—</span> 3 launch posts written for you</li>
+            <li class="flex gap-2"><span class="text-neutral-400">—</span> Product Hunt launch kit</li>
+            <li class="flex gap-2"><span class="text-neutral-400">—</span> 30 days of Slack support</li>
+            <li class="flex gap-2"><span class="text-neutral-400">—</span> Priority 36-hour build</li>
+          </ul>
+          <a href="https://rzp.io/rzp/QGxFCdR" target="_blank" rel="noopener" class="btn-ghost text-center">Choose Launch+</a>
+        </div>
+
       </div>
 
-      <!-- PRO -->
-      <div class="bg-[#FAFAF7] p-8 flex flex-col relative">
-        <div class="absolute top-6 right-6 text-[10px] uppercase tracking-widest bg-black text-white px-2 py-1 rounded-full">Most picked</div>
-        <div class="text-sm font-medium mb-1">Pro</div>
-        <div class="text-sm text-neutral-500 mb-8">For ideas that are actually going somewhere.</div>
-        <div class="mb-8">
-          <div class="flex items-baseline gap-2">
-            <div class="text-4xl font-medium tight">₹5,999</div>
-            <div class="text-sm text-neutral-400 line-through">₹7,999</div>
-          </div>
-          <div class="text-xs text-neutral-500 mt-1">limited-period offer · 6 spots</div>
-        </div>
-        <ul class="space-y-3 text-sm text-neutral-800 flex-grow mb-8">
-          <li class="flex gap-2"><span class="text-neutral-500">—</span> Everything in Basic</li>
-          <li class="flex gap-2"><span class="text-neutral-500">—</span> Multi-section website</li>
-          <li class="flex gap-2"><span class="text-neutral-500">—</span> Full brand system + voice doc</li>
-          <li class="flex gap-2"><span class="text-neutral-500">—</span> Custom domain + email setup</li>
-          <li class="flex gap-2"><span class="text-neutral-500">—</span> Analytics + email automation</li>
-          <li class="flex gap-2"><span class="text-neutral-500">—</span> 90-day roadmap</li>
-          <li class="flex gap-2"><span class="text-neutral-500">—</span> 7 days of post-launch fixes</li>
-        </ul>
-        <a href="https://rzp.io/rzp/wagNd9oF" target="_blank" rel="noopener" class="btn-primary text-center">Choose Pro</a>
-      </div>
-
-      <!-- LAUNCH+ -->
-      <div class="bg-white p-8 flex flex-col">
-        <div class="text-sm font-medium mb-1">Launch+</div>
-        <div class="text-sm text-neutral-500 mb-8">For founders ready to charge from day one.</div>
-        <div class="mb-8">
-          <div class="flex items-baseline gap-2">
-            <div class="text-4xl font-medium tight">₹9,999</div>
-            <div class="text-sm text-neutral-400 line-through">₹12,999</div>
-          </div>
-          <div class="text-xs text-neutral-500 mt-1">limited-period offer</div>
-        </div>
-        <ul class="space-y-3 text-sm text-neutral-700 flex-grow mb-8">
-          <li class="flex gap-2"><span class="text-neutral-400">—</span> Everything in Pro</li>
-          <li class="flex gap-2"><span class="text-neutral-400">—</span> Working MVP (auth + dashboard)</li>
-          <li class="flex gap-2"><span class="text-neutral-400">—</span> Razorpay / Stripe integration</li>
-          <li class="flex gap-2"><span class="text-neutral-400">—</span> 3 launch posts written for you</li>
-          <li class="flex gap-2"><span class="text-neutral-400">—</span> Product Hunt launch kit</li>
-          <li class="flex gap-2"><span class="text-neutral-400">—</span> 30 days of Slack support</li>
-          <li class="flex gap-2"><span class="text-neutral-400">—</span> Priority 36-hour build</li>
-        </ul>
-        <a href="https://rzp.io/rzp/QGxFCdR" target="_blank" rel="noopener" class="btn-ghost text-center">Choose Launch+</a>
+      <!-- "Have an idea?" box -->
+      <div class="w-full lg:w-56 flex-shrink-0 bg-white border hairline rounded-2xl p-7 flex flex-col gap-5">
+        <div class="text-sm font-medium text-neutral-800">Have an idea?</div>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSci3mon3mF5_OFqPrCNPEdtuzu2JIgdertnhwAhrWngA55fAA/viewform"
+           target="_blank" rel="noopener"
+           class="btn-primary text-center text-sm">Submit my idea →</a>
+        <p class="text-xs text-neutral-400 leading-relaxed">Build starts after payment confirmation.</p>
       </div>
 
     </div>
@@ -480,33 +495,14 @@
     <p class="mt-6 text-neutral-400 max-w-xl">
       Six questions. No call required. We'll reply within 4 hours with a start time.
     </p>
-    <form class="mt-12 space-y-6 max-w-xl" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Received — check your email'; this.querySelector('button').disabled=true;">
-      <div>
-        <label class="block text-xs uppercase tracking-widest text-neutral-500 mb-2">Your name</label>
-        <input type="text" required class="w-full bg-transparent border-b border-neutral-700 focus:border-white outline-none py-2 text-base" placeholder="What we should call you">
-      </div>
-      <div>
-        <label class="block text-xs uppercase tracking-widest text-neutral-500 mb-2">Email</label>
-        <input type="email" required class="w-full bg-transparent border-b border-neutral-700 focus:border-white outline-none py-2 text-base" placeholder="we send the live URL here">
-      </div>
-      <div>
-        <label class="block text-xs uppercase tracking-widest text-neutral-500 mb-2">The idea</label>
-        <textarea required rows="3" class="w-full bg-transparent border-b border-neutral-700 focus:border-white outline-none py-2 text-base resize-none" placeholder="explain it like you're texting a friend"></textarea>
-      </div>
-      <div>
-        <label class="block text-xs uppercase tracking-widest text-neutral-500 mb-2">Tier</label>
-        <select class="w-full bg-transparent border-b border-neutral-700 focus:border-white outline-none py-2 text-base">
-          <option class="text-black">Pro — ₹5,999 (recommended)</option>
-          <option class="text-black">Basic — ₹999</option>
-          <option class="text-black">Launch+ — ₹9,999</option>
-          <option class="text-black">Not sure — talk to me</option>
-        </select>
-      </div>
-      <button type="submit" class="bg-white text-black rounded-full px-6 py-3 font-medium text-sm hover:opacity-85 transition mt-4">
-        Submit and start the clock →
-      </button>
-      <p class="text-xs text-neutral-500">No spam. No calls. No decks. Just shipping.</p>
-    </form>
+    <div class="mt-12 flex flex-col gap-4">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSci3mon3mF5_OFqPrCNPEdtuzu2JIgdertnhwAhrWngA55fAA/viewform"
+         target="_blank" rel="noopener"
+         class="inline-flex items-center bg-white text-black rounded-full px-6 py-3 font-medium text-sm hover:opacity-85 transition w-fit">
+        Submit my idea →
+      </a>
+      <p class="text-xs text-neutral-500">Build starts after payment is received.</p>
+    </div>
   </div>
 </section>
 
